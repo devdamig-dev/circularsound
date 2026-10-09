@@ -1,0 +1,6 @@
+.nuvem
+.nuvem/**
+.env
+.env.*
+node_modules/
+*.log
