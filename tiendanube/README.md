@@ -1,12 +1,12 @@
-# Circular Sound / Río: candidato de CSS
+# Circular Sound / Río: capa visual
 
-Estado: preparado, sin publicar y pendiente de validación visual en Tiendanube.
+Estado: CSS publicado el 12/10/2026 desde el editor nativo de Río, con autorización explícita del usuario para validar inmediatamente en producción. No hubo transferencia FTP. El comentario de candidato dentro del archivo CSS conserva la identificación de la versión preparada.
 
 Este directorio contiene una capa visual para el Río existente. No sustituye las
 plantillas, los componentes de productos, el carrito ni la configuración comercial.
 `docs/` continúa siendo una maqueta parcial, no una implementación de Tiendanube.
 
-## Cambios propuestos
+## Cambios aplicados
 
 - Recuperar el comportamiento nativo del encabezado, retirando el posicionamiento absoluto impuesto por el CSS anterior.
 - Fondo blanco translúcido, blur y navegación oscura con acentos #FE0000.
@@ -63,5 +63,6 @@ configuraciones comerciales ni bases de productos para revertir una modificació
 
 CSS parseado sin errores de sintaxis. Selectores de hero, categorías, productos,
 banners y footer contrastados con el DOM público y las plantillas originales.
-Esta verificación no reemplaza la comprobación visual ni la prueba funcional del
-candidato: ambas permanecen pendientes porque la vista previa no reflejó el CSS nuevo.
+Después de publicar se confirmó la hoja en producción y su persistencia en el editor. Se revisaron Home desktop, vista mobile nativa (365px útiles), header sticky durante scroll, áreas uniformes de producto, catálogo Audio, PDP y agregar/quitar del carrito con precio y total correctos. Home y catálogo no mostraron overflow horizontal; la vista mobile tampoco. No se generaron pedidos ni pagos.
+
+Siguen pendientes los anchos exactos 375/390/430px y tablet, el QA integral, la carga de textos editables/fotografías del hero y los enlaces editoriales. Las imágenes publicitarias actuales del hero se conservaron. El rediseño completo aún no está terminado.
