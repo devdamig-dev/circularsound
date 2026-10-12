@@ -1,0 +1,205 @@
+/* Circular Sound · Río · 2026-10-12
+   CANDIDATO SIN PUBLICAR: requiere validación visual y funcional.
+   Reemplaza el CSS avanzado anterior completo. No concatenar.
+   Conserva Swiper, formularios, precios, stock y grillas nativas. */
+:root {
+  --cs-red: #fe0000;
+  --cs-ink: #111;
+  --cs-radius: 18px;
+  --cs-content: 1380px;
+}
+/* Río ya carga Poppins desde su configuración; sin segunda descarga. */
+.head-main {
+  background: rgba(255,255,255,.94);
+  color: var(--cs-ink);
+  border-bottom: 1px solid rgba(17,17,17,.08);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+.head-main .nav-list-link { color: var(--cs-ink); }
+.head-main .nav-list-link:hover { color: var(--cs-red); }
+.head-main .nav-list-link.selected {
+  color: var(--cs-red);
+  font-weight: 700;
+}
+.head-main .svg-icon-text { fill: currentColor; }
+.head-main .form-control { border-radius: 24px; }
+.template-home .section-slider-home { margin: 0; }
+.template-home .home-slider-container > div { margin-bottom: 0 !important; }
+/* Imágenes actuales con texto incrustado: mantener toda la composición. */
+.template-home .section-slider .slider-slide { height: auto; }
+.template-home .section-slider .slider-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  animation: none;
+}
+/* Al completar texto editable en Río, la composición usa fotografía a sangre. */
+.template-home .slider-slide:has(.swiper-text) {
+  height: clamp(420px, 58vw, 680px);
+  max-height: calc(100svh - 104px);
+  min-height: 380px;
+  background: #111;
+}
+.template-home .slider-slide:has(.swiper-text) .slider-image {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.template-home .slider-slide:has(.swiper-text)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.22) 75%);
+}
+.template-home .section-slider .swiper-text {
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: var(--cs-content);
+  padding: 24px 72px;
+  transform: translate(-50%,-50%);
+  text-align: left;
+}
+.template-home .section-slider .swiper-text .h1 {
+  max-width: 700px;
+  min-height: 2.2em;
+  font-size: clamp(30px,3.6vw,54px);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+.template-home .section-slider .swiper-text p {
+  max-width: 570px;
+  min-height: 3.2em;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.template-home .section-slider .swiper-text .btn {
+  background: var(--cs-red);
+  border-color: var(--cs-red);
+  color: #fff;
+  padding: 16px 26px;
+}
+.template-home .section-slider .swiper-pagination-bullet-active { background: var(--cs-red); }
+.template-home .section-slider .swiper-button-prev { left: 16px; }
+.template-home .section-slider .swiper-button-next { right: 16px; }
+.template-home .section-slider .swiper-button-prev,
+.template-home .section-slider .swiper-button-next { border-radius: 50%; }
+/* Contenedores propios de las secciones: no limitar overlays ni carrusel hero. */
+.template-home .section-categories-home > .container-fluid,
+.template-home .section-featured-home > .container-fluid,
+.template-home .section-banners-home .js-banners.container-fluid,
+.template-home .section-informative-banners > .container,
+footer > .container-fluid {
+  width: 100%;
+  max-width: var(--cs-content);
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+.template-home .section-categories-home { padding-block: 32px; }
+.template-home .home-category { width: 145px; margin-inline: 8px; }
+.template-home .home-category-image { background: #f5f5f5; }
+.template-home .home-category-image img { object-fit: contain; }
+.template-home .home-category-name {
+  display: block;
+  height: auto;
+  min-height: 2.7em;
+  max-height: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.35;
+  font-size: 14px;
+}
+.template-home .section-featured-home { padding-block: 24px; }
+.template-home .section-featured-home .section-title {
+  font-size: clamp(24px,2.2vw,34px);
+  margin-bottom: 28px !important;
+  letter-spacing: -.025em;
+}
+/* El componente real usa .item-image > .position-relative con ratio inline. */
+.item-product .item-image {
+  overflow: hidden;
+  border-radius: var(--cs-radius);
+  background: #f6f6f6;
+}
+.item-product .item-image > .position-relative {
+  padding-bottom: 100% !important; /* Único ratio inline del componente nativo. */
+}
+.item-product .item-image .js-item-image {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+}
+.item-product .item-description { padding: 16px 4px 8px; }
+.item-product .item-name {
+  white-space: normal;
+  text-overflow: clip;
+  height: auto;
+  min-height: 3em;
+  max-height: none;
+  line-height: 1.5;
+  font-size: 14px;
+}
+.template-home .section-institutional-home { padding-block: 36px !important; }
+.template-home .section-institutional-home h2 { line-height: 1.3; }
+.template-home .section-banners-home { padding-block: 24px; }
+.template-home .section-banners-home .textbanner { border-radius: 22px; overflow: hidden; }
+.template-home .section-banners-home .textbanner-image img { display: block; }
+.template-home .section-informative-banners { padding-block: 36px; }
+.template-home .section-informative-banners h3 { line-height: 1.3; }
+.head-main .btn,
+.section-slider-home .btn,
+.section-banners-home .btn,
+#product_form .btn,
+.item-product .btn,
+#modal-cart .btn,
+footer .btn { border-radius: 999px; }
+#single-product .product-description { line-height: 1.7; }
+footer .form-control { border-radius: 10px; }
+.head-main a:focus-visible,
+.section-slider-home a:focus-visible,
+.home-category a:focus-visible,
+.item-product a:focus-visible { outline: 2px solid var(--cs-red); outline-offset: 4px; }
+@media (max-width: 767px) {
+  .template-home .section-categories-home > .container-fluid,
+  .template-home .section-featured-home > .container-fluid,
+  .template-home .section-banners-home .js-banners.container-fluid,
+  .template-home .section-informative-banners > .container,
+  footer > .container-fluid { padding-inline: 16px; }
+  .template-home .section-categories-home { padding-block: 24px 12px; }
+  .template-home .home-category { width: 112px; margin-inline: 4px; }
+  .template-home .home-category-name { font-size: 12px; min-height: 3.9em; }
+  .template-home .section-featured-home { padding-block: 20px; }
+  .item-product .item-image { border-radius: 12px; }
+  .item-product .item-image .js-item-image { padding: 10px; }
+  .item-product .item-description { padding-top: 12px; }
+  .item-product .item-name { font-size: 12px; min-height: 4.5em; }
+  .template-home .slider-slide:has(.swiper-text) {
+    height: 510px;
+    min-height: 390px;
+    max-height: calc(100svh - 150px);
+  }
+  .template-home .section-slider .swiper-text { padding: 24px; }
+  .template-home .section-slider .swiper-text .h1 { font-size: 32px; }
+  .template-home .section-slider .swiper-text p { font-size: 14px; line-height: 1.5; min-height: 4.5em; }
+  .template-home .section-slider .swiper-text .btn { padding: 14px 22px; }
+  .template-home .slider-slide:has(.swiper-text)::after {
+    background: linear-gradient(0deg,rgba(0,0,0,.8),rgba(0,0,0,.18));
+  }
+  .template-home .section-institutional-home { padding-block: 24px !important; }
+  .template-home .section-banners-home .textbanner { border-radius: 14px; }
+  .template-home .section-informative-banners { padding-block: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-slider-home .slider-image,
+  .section-banners-home .textbanner-image-effect { animation: none; transition: none; }
+}
